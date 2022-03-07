@@ -14,4 +14,5 @@ pm2 start google-chrome \
   --no-first-run \
   --mute-audio \
   --hide-scrollbars \
+  --no-sandbox \
   --remote-debugging-port=9222
