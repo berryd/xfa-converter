@@ -6,12 +6,16 @@ ADD package.json /app
 ADD run_chrome.sh /app
 ADD flatten.js /app
 ADD run_flatten.sh /app
+ADD entrypoint.sh /app
+
+#update node
+RUN npm install n -g && n stable
 
 #install dependencies in app directory
 RUN npm install -g pm2
 RUN npm install --save html-pdf-chrome
 RUN npm install
-RUN chmod +x run_chrome.sh run_flatten.sh
+RUN chmod +x run_chrome.sh run_flatten.sh entrypoint.sh
 #RUN mkdir -p output
 
 #install chrome
@@ -31,5 +35,6 @@ RUN npm install -g gulp-cli
 RUN npm install
 
 EXPOSE 9222
-ENTRYPOINT ["gulp","server"]
+WORKDIR /app
+ENTRYPOINT ["./entrypoint.sh"]
 
