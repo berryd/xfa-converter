@@ -1,0 +1,15 @@
+version: '3'
+services:
+  xfa-converter:
+   build:
+     context: .
+     dockerfile: Dockerfile
+     target: xfa-converter
+   container_name: xfa-converter
+   restart: always
+   ports:
+   - "9222:9222"
+   volumes:
+   - "./xfa-input:/app/pdf.js/xfa:ro"
+   - "./pdf-output:/app/output"
+
