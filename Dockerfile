@@ -34,7 +34,7 @@ WORKDIR pdf.js
 RUN npm install -g gulp-cli
 RUN npm install
 
-EXPOSE 9222
+EXPOSE 8888
 WORKDIR /app
 ENTRYPOINT ["./entrypoint.sh"]
 

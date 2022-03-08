@@ -1,5 +1,6 @@
 const htmlPdf = require('html-pdf-chrome');
 const begin = Date.now();
+const myArgs = process.argv.slice(2);
 console.log('Begin');
 const options = {
     port: 9222,
@@ -7,7 +8,8 @@ const options = {
     chromeFlags: ['--disable-web-security', '--headless']
 };
 
-const url = 'http://localhost:8888/web/viewer.html?file=/xfa/xfa_invoice_example.pdf';
+const filename = myArgs[0] || 'xfa_invoice_example.pdf'
+const url = 'http://localhost:8888/web/viewer.html?file=/xfa/'+filename;
 console.log("Requesting conversion");
 let pdf = htmlPdf.create(url, options).then((pdf) => {
   const created = Date.now();

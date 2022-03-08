@@ -8,7 +8,7 @@ services:
    container_name: xfa-converter
    restart: always
    ports:
-   - "9222:9222"
+   - "8888:8888"
    volumes:
    - "./xfa-input:/app/pdf.js/xfa:ro"
    - "./pdf-output:/app/output"
